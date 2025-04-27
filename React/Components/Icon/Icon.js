@@ -1,0 +1,14 @@
+import { jsx as _jsx } from "react/jsx-runtime";
+import { getIcon } from "obsidian";
+/**
+ * Given an icon name, converts a Obsidian icon to a usable SVG string and embeds it into a span.
+ * @returns
+ */
+const Icon = ({ name }) => {
+    const iconText = new XMLSerializer().serializeToString(getIcon(name) || new Node());
+    return (_jsx("span", { className: "lucide-icon", dangerouslySetInnerHTML: {
+            __html: iconText,
+        } }));
+};
+export default Icon;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSWNvbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkljb24udHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQSxPQUFPLEVBQUUsT0FBTyxFQUFFLE1BQU0sVUFBVSxDQUFDO0FBRW5DOzs7R0FHRztBQUNILE1BQU0sSUFBSSxHQUFHLENBQUMsRUFBRSxJQUFJLEVBQW9CLEVBQUUsRUFBRTtJQUMzQyxNQUFNLFFBQVEsR0FBRyxJQUFJLGFBQWEsRUFBRSxDQUFDLGlCQUFpQixDQUNyRCxPQUFPLENBQUMsSUFBSSxDQUFDLElBQUksSUFBSSxJQUFJLEVBQUUsQ0FDM0IsQ0FBQztJQUVGLE9BQU8sQ0FDTixlQUNDLFNBQVMsRUFBQyxhQUFhLEVBQ3ZCLHVCQUF1QixFQUFFO1lBQ3hCLE1BQU0sRUFBRSxRQUFRO1NBQ2hCLEdBQ00sQ0FDUixDQUFDO0FBQ0gsQ0FBQyxDQUFDO0FBRUYsZUFBZSxJQUFJLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XHJcbmltcG9ydCB7IGdldEljb24gfSBmcm9tIFwib2JzaWRpYW5cIjtcclxuXHJcbi8qKlxyXG4gKiBHaXZlbiBhbiBpY29uIG5hbWUsIGNvbnZlcnRzIGEgT2JzaWRpYW4gaWNvbiB0byBhIHVzYWJsZSBTVkcgc3RyaW5nIGFuZCBlbWJlZHMgaXQgaW50byBhIHNwYW4uXHJcbiAqIEByZXR1cm5zXHJcbiAqL1xyXG5jb25zdCBJY29uID0gKHsgbmFtZSB9OiB7IG5hbWU6IHN0cmluZyB9KSA9PiB7XHJcblx0Y29uc3QgaWNvblRleHQgPSBuZXcgWE1MU2VyaWFsaXplcigpLnNlcmlhbGl6ZVRvU3RyaW5nKFxyXG5cdFx0Z2V0SWNvbihuYW1lKSB8fCBuZXcgTm9kZSgpXHJcblx0KTtcclxuXHJcblx0cmV0dXJuIChcclxuXHRcdDxzcGFuXHJcblx0XHRcdGNsYXNzTmFtZT1cImx1Y2lkZS1pY29uXCJcclxuXHRcdFx0ZGFuZ2Vyb3VzbHlTZXRJbm5lckhUTUw9e3tcclxuXHRcdFx0XHRfX2h0bWw6IGljb25UZXh0LFxyXG5cdFx0XHR9fVxyXG5cdFx0Pjwvc3Bhbj5cclxuXHQpO1xyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgSWNvbjtcclxuIl19

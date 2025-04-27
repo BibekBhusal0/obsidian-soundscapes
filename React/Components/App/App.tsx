@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useObsidianPluginContext } from "../../Context/ObsidianPluginContext";
 import Icon from "../Icon/Icon";
 import Header from "../Header/Header";
@@ -11,10 +11,10 @@ const App = () => {
 	const { settingsObservable, localPlayerStateObservable, plugin } =
 		useObsidianPluginContext();
 	const [settings, setSettings] = useState<SoundscapesPluginSettings>(
-		settingsObservable?.getValue()
+		settingsObservable?.getValue(),
 	);
 	const [localPlayerState, setLocalPlayerState] = useState<LocalPlayerState>(
-		localPlayerStateObservable?.getValue()
+		localPlayerStateObservable?.getValue(),
 	);
 
 	/**
@@ -24,7 +24,7 @@ const App = () => {
 		const unsubscribe = settingsObservable?.onChange(
 			(newSettings: SoundscapesPluginSettings) => {
 				setSettings(newSettings);
-			}
+			},
 		);
 
 		return () => {
@@ -39,7 +39,7 @@ const App = () => {
 		const unsubscribe = localPlayerStateObservable?.onChange(
 			(newState: LocalPlayerState) => {
 				setLocalPlayerState(newState);
-			}
+			},
 		);
 
 		return () => {
@@ -73,14 +73,14 @@ const App = () => {
 									{localPlayerState.currentTrack?.fileName ===
 										song.fileName &&
 										localPlayerState.playerState ===
-											PLAYER_STATE.PLAYING && (
+										PLAYER_STATE.PLAYING && (
 											<Icon name="volume-2" />
 										)}
 
 									{localPlayerState.currentTrack?.fileName ===
 										song.fileName &&
 										localPlayerState.playerState ===
-											PLAYER_STATE.PAUSED && (
+										PLAYER_STATE.PAUSED && (
 											<Icon name="volume" />
 										)}
 								</td>
@@ -89,7 +89,7 @@ const App = () => {
 								<td>{song.album}</td>
 								<td>
 									{secondsToMinutesAndSeconds(
-										song.duration || 0
+										song.duration || 0,
 									)}
 								</td>
 							</tr>

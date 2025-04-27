@@ -1,5 +1,4 @@
-import React from "react";
-import { App, FileView, ItemView, WorkspaceLeaf } from "obsidian";
+import { App, ItemView, WorkspaceLeaf } from "obsidian";
 import { Root, createRoot } from "react-dom/client";
 import ReactApp from "../React/Components/App/App";
 import { obsidianPluginContext } from "../React/Context/ObsidianPluginContext";
@@ -19,7 +18,7 @@ export class ReactView extends ItemView {
 		plugin: SoundscapesPlugin,
 		settingsObservable: Observable,
 		localPlayerStateObservable: Observable,
-		leaf: WorkspaceLeaf
+		leaf: WorkspaceLeaf,
 	) {
 		super(leaf);
 		this.app = plugin.app;
@@ -52,7 +51,7 @@ export class ReactView extends ItemView {
 				}}
 			>
 				<ReactApp />
-			</obsidianPluginContext.Provider>
+			</obsidianPluginContext.Provider>,
 		);
 		this.containerEl.addClass("soundscapesmymusic");
 	}

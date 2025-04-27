@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useObsidianPluginContext } from "../../Context/ObsidianPluginContext";
 import Icon from "../Icon/Icon";
 import Search from "../Search/Search";
@@ -9,12 +9,12 @@ import { PLAYER_STATE } from "src/Types/Enums";
 const Header = () => {
 	const { localPlayerStateObservable, plugin } = useObsidianPluginContext();
 	const [localPlayerState, setLocalPlayerState] = useState<LocalPlayerState>(
-		localPlayerStateObservable?.getValue()
+		localPlayerStateObservable?.getValue(),
 	);
 	const titleElementRef = useRef<HTMLDivElement>(null);
 	const shouldScrollTitle = titleElementRef?.current
 		? titleElementRef?.current?.scrollWidth >
-		  titleElementRef?.current?.clientWidth
+		titleElementRef?.current?.clientWidth
 		: false;
 
 	/**
@@ -24,7 +24,7 @@ const Header = () => {
 		const unsubscribe = localPlayerStateObservable?.onChange(
 			(newState: LocalPlayerState) => {
 				setLocalPlayerState(newState);
-			}
+			},
 		);
 
 		return () => {
@@ -81,10 +81,9 @@ const Header = () => {
 						<div className="soundscapesmymusic-middle-line1">
 							<div className="soundscapesmymusic-middle-line1-left">
 								<button
-									className={`soundscapesmymusic-middle-line1-button ${
-										plugin?.settings.myMusicShuffle &&
+									className={`soundscapesmymusic-middle-line1-button ${plugin?.settings.myMusicShuffle &&
 										"soundscapesmymusic-middle-line1-button--active"
-									}`}
+										}`}
 									onClick={() => {
 										plugin?.toggleShuffle();
 									}}
@@ -93,10 +92,9 @@ const Header = () => {
 								</button>
 							</div>
 							<div
-								className={`soundscapesmymusic-middle-line1-title ${
-									shouldScrollTitle &&
+								className={`soundscapesmymusic-middle-line1-title ${shouldScrollTitle &&
 									"soundscapesmymusic-middle-line1-title--scroll"
-								}`}
+									}`}
 								ref={titleElementRef}
 							>
 								<span className="soundscapesmymusic-middle-line1-title-text">
@@ -108,7 +106,7 @@ const Header = () => {
 						<div className="soundscapesmymusic-middle-line2">
 							<div className="soundscapesmymusic-middle-line2-left">
 								{secondsToMinutesAndSeconds(
-									localPlayerState.currentTime || 0
+									localPlayerState.currentTime || 0,
 								)}
 							</div>
 							<div className="soundscapesmymusic-middle-line2-artist">
@@ -118,7 +116,8 @@ const Header = () => {
 								-
 								{secondsToMinutesAndSeconds(
 									(localPlayerState.currentTrack.duration ||
-										0) - (localPlayerState.currentTime || 0)
+										0) -
+									(localPlayerState.currentTime || 0),
 								)}
 							</div>
 						</div>
@@ -136,8 +135,8 @@ const Header = () => {
 							onChange={(e) =>
 								plugin?.seek(
 									(parseInt(e.target.value) / 100) *
-										(localPlayerState.currentTrack
-											?.duration || 0)
+									(localPlayerState.currentTrack
+										?.duration || 0),
 								)
 							}
 							className="soundscapesmymusic-middle-seekbar"
